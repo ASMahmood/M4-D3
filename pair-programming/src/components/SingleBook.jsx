@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
+import "./SingleBook.css";
 
 class SingleBook extends React.Component {
   state = {
@@ -18,9 +19,11 @@ class SingleBook extends React.Component {
     return (
       <Card
         onClick={() => this.toggleSelected()}
-        style={{ width: "18rem" }}
+        style={{ width: "16rem" }}
         className={
-          this.state.selected === true ? "bg-primary mx-auto" : "mx-auto"
+          this.state.selected === true
+            ? "cardSelected mx-auto my-3"
+            : "mx-auto my-3"
         }
       >
         <Card.Img variant="top" src={this.props.book.img} />

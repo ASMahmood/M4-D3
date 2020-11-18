@@ -1,6 +1,6 @@
 import React from "react";
 import SingleBook from "./SingleBook";
-import { Form } from "react-bootstrap";
+import { Form, Container, Row, Col } from "react-bootstrap";
 
 class BookList extends React.Component {
   state = {
@@ -18,18 +18,26 @@ class BookList extends React.Component {
   render() {
     return (
       <>
-        <Form>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Control
-              onChange={(e) => this.filterBookList(e.target.value)}
-              type="text"
-              placeholder="Search for book"
-            />
-          </Form.Group>
-        </Form>
-        {this.state.booklist.map((item) => (
-          <SingleBook book={item} key={item.asin} />
-        ))}
+        <Container>
+          <Row>
+            <Col>
+              <Form>
+                <Form.Group controlId="formBasicEmail">
+                  <Form.Control
+                    onChange={(e) => this.filterBookList(e.target.value)}
+                    type="text"
+                    placeholder="Search for book"
+                  />
+                </Form.Group>
+              </Form>
+            </Col>
+          </Row>
+          <Row>
+            {this.state.booklist.map((item) => (
+              <SingleBook book={item} key={item.asin} />
+            ))}
+          </Row>
+        </Container>
       </>
     );
   }
